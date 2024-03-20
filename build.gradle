@@ -12,7 +12,7 @@ repositories {
 dependencies {
     implementation 'org.testng:testng:7.9.0'
     implementation 'com.codeborne:selenide:7.2.1'
-
+    implementation 'org.apache.commons:commons-lang3:3.14.0'
 }
 
 test {

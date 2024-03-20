@@ -11,6 +11,6 @@ public class BaseConfig {
         Configuration.browser = "chrome";
         Configuration.baseUrl = "";
         Configuration.browserSize = "1280x1024";
-        open("https://github.com/");
+        open("https://github.com/login");
     }
 }
