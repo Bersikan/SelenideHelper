@@ -16,6 +16,9 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.14.0'
     implementation 'io.rest-assured:rest-assured:5.4.0'
     implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'io.qameta.allure:allure-java-commons:2.26.0'
+    implementation 'io.qameta.allure:allure-rest-assured:2.26.0'
+    implementation 'io.qameta.allure:allure-selenide:2.26.0'
 }
 
 test {

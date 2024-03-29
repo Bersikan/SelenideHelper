@@ -1,6 +1,7 @@
 package restAssuredConfigGroovy
 
 import groovy.json.JsonSlurper
+import io.qameta.allure.Step
 import io.restassured.response.Response
 
 class RaResponse {

@@ -1,9 +1,10 @@
 package verifyHelper
 
+import io.qameta.allure.Step
+
 import java.text.Collator
 
 class Verifier {
-
     static List getSortedListOfMapsByTextEntity(List<Map> list, String sortBy, String sortOrder = "asc") {
         def collator = Collator.getInstance(Locale.ENGLISH)
         if (sortOrder.equalsIgnoreCase("asc")) {
