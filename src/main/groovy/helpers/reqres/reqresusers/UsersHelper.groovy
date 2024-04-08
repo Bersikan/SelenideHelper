@@ -1,10 +1,9 @@
 package helpers.reqres.reqresusers
 
-import io.qameta.allure.Step
+
 import io.restassured.http.ContentType
 import restAssuredConfigGroovy.RaResponse
 
-import static io.restassured.RestAssured.baseURI
 import static io.restassured.RestAssured.given
 
 class UsersHelper {
@@ -19,18 +18,23 @@ class UsersHelper {
     UsersHelper() {
 
     }
+
     static RaResponse getListUsers(Map queryParams = [:]) {
         return new RaResponse(given().queryParams(queryParams).when().get(ENDPOINT))
     }
+
     static RaResponse getSingleUser(String id) {
         return new RaResponse(given().when().get(ENDPOINT + "/${id}"))
     }
+
     static RaResponse postUser(Map user) {
         return new RaResponse(given().contentType(ContentType.JSON).body(user).when().post(ENDPOINT))
     }
+
     static RaResponse registerUser(String email, String password) {
         return new RaResponse(given().contentType(ContentType.JSON).body(["email": email, "password": password]).when().post(ENDPOINT_USER_REGISTRATION))
     }
+
     static RaResponse loginUser(String email, String password) {
         return new RaResponse(given().contentType(ContentType.JSON).body(["email": email, "password": password]).when().post(ENDPOINT_LOGIN))
     }
