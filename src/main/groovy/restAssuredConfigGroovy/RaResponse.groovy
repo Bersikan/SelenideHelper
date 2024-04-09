@@ -1,9 +1,7 @@
 package restAssuredConfigGroovy
 
-import groovy.json.JsonSlurper
-import io.qameta.allure.Step
+
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper
-import io.restassured.RestAssured
 import io.restassured.response.Response
 
 class RaResponse {
@@ -21,11 +19,6 @@ class RaResponse {
         this.bodyAsMap = parseResponseToJsonObject()
         this.headersAsList = response.headers().asList()
     }
-
-
-//    Object parseResponseToJsonObject() {
-//        return new JsonSlurper().parseText(bodyAsString)
-//    }
 
     LinkedHashMap<String, ?> parseResponseToJsonObject() {
         return new ObjectMapper().readValue(bodyAsString, LinkedHashMap.class)
