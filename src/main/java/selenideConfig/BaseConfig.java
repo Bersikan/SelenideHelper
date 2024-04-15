@@ -14,8 +14,7 @@ public class BaseConfig {
                 .screenshots(true)
                 .savePageSource(false)
                 .includeSelenideSteps(true));
-        Configuration.browser = (browser == null) ? "asdasdasd" : browser;
-        assert Configuration.browser.equals("firefox");
+        Configuration.browser = (browser == null) ? "chrome" : browser;
         Configuration.baseUrl = "";
         Configuration.browserSize = "1280x1024";
     }
