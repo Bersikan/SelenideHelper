@@ -1,8 +1,8 @@
-package helpers.reqres.reqresusers
+package services.reqres.reqresusers
 
 
 import io.restassured.http.ContentType
-import restAssuredConfigGroovy.RaResponse
+import response_parser.RaResponse
 
 import static io.restassured.RestAssured.given
 

@@ -1,4 +1,0 @@
-package restAssuredConfigGroovy
-
-class SchemaHelper {
-}

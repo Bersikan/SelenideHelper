@@ -1,4 +1,4 @@
-package restAssuredConfigGroovy
+package response_parser
 
 
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper
@@ -28,15 +28,15 @@ class RaResponse {
         return response.getBody().asString()
     }
 
-    Object getBodyAsMap() {
+    LinkedHashMap getBodyAsMap() {
         return bodyAsMap
     }
 
-    Object getHeadersAsList() {
+    List getHeadersAsList() {
         return headersAsList
     }
 
-    Object getStatus() {
+    Integer getStatus() {
         return status
     }
 

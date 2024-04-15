@@ -1,4 +1,4 @@
-package helpers.bookstore
+package services.bookstore
 
 class UserIdentifier {
     private final String USER

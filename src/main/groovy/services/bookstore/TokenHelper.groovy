@@ -1,9 +1,9 @@
-package helpers.bookstore
+package services.bookstore
 
 import io.restassured.builder.RequestSpecBuilder
 import io.restassured.http.ContentType
 import io.restassured.specification.RequestSpecification
-import restAssuredConfigGroovy.RaResponse
+import response_parser.RaResponse
 
 import static io.restassured.RestAssured.given
 
@@ -17,8 +17,13 @@ class TokenHelper {
                 .setContentType(ContentType.JSON)
                 .setBaseUri(baseUrl).build()
     }
-    
+
     RaResponse createToken(final UserIdentifier userIdentifier) {
-        return new RaResponse(given().spec(reqSpec).body(["userName": userIdentifier.getUserName(), "password": userIdentifier.getUserPassword()]).when().post(ENDPOINT))
+        RaResponse response = new RaResponse(given().spec(reqSpec).body(["userName": userIdentifier.getUserName(), "password": userIdentifier.getUserPassword()]).when().post(ENDPOINT))
+        int status = response.status
+        if (status != 200) {
+            throw new Exception("Impossible to generate token. Response status: " + status)
+        }
+        return response
     }
 }
