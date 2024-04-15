@@ -14,6 +14,7 @@ public class BaseConfig {
                 .screenshots(true)
                 .savePageSource(false)
                 .includeSelenideSteps(true));
+        Configuration.remote = "http://localhost:4444";
         Configuration.browser = (browser == null) ? "chrome" : browser;
         Configuration.baseUrl = "";
         Configuration.browserSize = "1280x1024";
