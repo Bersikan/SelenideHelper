@@ -1,18 +1,6 @@
 package general_helpers
 
 class MapHelper {
-
-    boolean search(def root) {
-        return root.find {
-            if (it.value instanceof Map) {
-                return search(it.value)
-            } else if (it.value == null) {
-                return true
-            }
-            return false
-        }
-    }
-
     static List nestedSearch(Map root, String key) {
         List results = []
         search(root, results, key)
