@@ -13,16 +13,22 @@ class MapHelper {
         }
     }
 
+    static List nestedSearch(Map root, String key) {
+        List results = []
+        search(root, results, key)
+        return results
+    }
 
-    static List nestedSearch(Map root, List results, String key) {
+
+    static List search(Map root, List results, String key) {
         root.each { it ->
             if (it.key == key) {
                 results.add(it.value)
                 if (it.value instanceof Map) {
-                    return nestedSearch(it.value, results, key)
+                    return search(it.value, results, key)
                 }
             } else if (it.value instanceof Map) {
-                return nestedSearch(it.value, results, key)
+                return search(it.value, results, key)
             }
             return results
         }
