@@ -10,6 +10,7 @@ class RaResponse {
     private String bodyAsString
     private Object bodyAsMap
     private Response response
+    private def validateJsonSchema
     private int status
 
 
@@ -20,6 +21,8 @@ class RaResponse {
         this.bodyAsMap = parseResponseToJsonObject()
         this.headersAsList = response.headers().asList()
         this.cookies = response.getCookies()
+        this.validateJsonSchema = performValidateJsonSchema
+
     }
 
     LinkedHashMap<String, ?> parseResponseToJsonObject() {
@@ -44,6 +47,14 @@ class RaResponse {
 
     Response getResponse() {
         return response
+    }
+
+    private Closure performValidateJsonSchema = {
+        validator -> response.then().assertThat().body(validator)
+    }
+
+    def getValidateJsonSchema(){
+        return validateJsonSchema
     }
 
     Map getCookies() {
