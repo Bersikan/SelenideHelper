@@ -1,6 +1,6 @@
 package response_parser
 
-
+import groovy.json.JsonSlurper
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper
 import io.restassured.response.Response
 
@@ -25,8 +25,8 @@ class RaResponse {
 
     }
 
-    LinkedHashMap<String, ?> parseResponseToJsonObject() {
-        return new ObjectMapper().readValue(bodyAsString, LinkedHashMap.class)
+    LinkedHashMap<String, Object> parseResponseToJsonObject() {
+        return new JsonSlurper().parseText(bodyAsString)
     }
 
     String parseResponseToString(Response response) {
@@ -53,7 +53,7 @@ class RaResponse {
         validator -> response.then().assertThat().body(validator)
     }
 
-    def getValidateJsonSchema(){
+    def getValidateJsonSchema() {
         return validateJsonSchema
     }
 

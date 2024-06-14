@@ -1,4 +1,4 @@
-package services.reqres
+package services.swapi
 
 import general_helpers.ThreadSafeBaseURI
 import io.qameta.allure.restassured.AllureRestAssured
@@ -11,7 +11,8 @@ class CommonBaseSpecification {
     @BeforeMethod(alwaysRun = true)
     void setup() {
         RestAssured.filters([new AllureRestAssured()])
-        ThreadSafeBaseURI.setEndPoint("https://reqres.in")
+        ThreadSafeBaseURI.setEndPoint("https://swapi.dev/api/")
         baseURI = ThreadSafeBaseURI.getEndPoint()
     }
+
 }

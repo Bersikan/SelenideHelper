@@ -30,7 +30,6 @@ public class Transform implements IAnnotationTransformer {
             annotation.setGroups(allAnnotations.toArray(new String[0]));
         }
         List<String> groupNames = Arrays.asList(annotation.getGroups());
-        System.out.println(groupNames.toString());
     }
 }
 
