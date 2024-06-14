@@ -6,6 +6,7 @@ import io.restassured.response.Response
 
 class RaResponse {
     private List headersAsList
+    private Map cookies
     private String bodyAsString
     private Object bodyAsMap
     private Response response
@@ -18,6 +19,7 @@ class RaResponse {
         this.bodyAsString = parseResponseToString(response)
         this.bodyAsMap = parseResponseToJsonObject()
         this.headersAsList = response.headers().asList()
+        this.cookies = response.getCookies()
     }
 
     LinkedHashMap<String, ?> parseResponseToJsonObject() {
@@ -42,5 +44,9 @@ class RaResponse {
 
     Response getResponse() {
         return response
+    }
+
+    Map getCookies() {
+        return cookies
     }
 }

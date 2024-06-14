@@ -14,7 +14,7 @@ public class BaseConfig {
                 .screenshots(true)
                 .savePageSource(false)
                 .includeSelenideSteps(true));
-        Configuration.remote = "http://192.168.50.189:4444/wd/hub";
+//        Configuration.remote = "http://192.168.50.189:4444/wd/hub";
         Configuration.browser = (browser == null) ? "chrome" : browser;
         Configuration.baseUrl = "";
         Configuration.browserSize = "1280x1024";
