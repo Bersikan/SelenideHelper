@@ -1,10 +1,10 @@
 package testNG;
 
+import org.testng.IAnnotationTransformer;
+import org.testng.annotations.ITestAnnotation;
 import testNG.group_annotations.IntegrationTest;
 import testNG.group_annotations.RegressionTest;
 import testNG.group_annotations.SmokeTest;
-import org.testng.*;
-import org.testng.annotations.ITestAnnotation;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;

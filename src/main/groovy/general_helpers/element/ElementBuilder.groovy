@@ -23,7 +23,7 @@ class ElementBuilder {
         return this
     }
 
-    Element build(){
+    Element build() {
         Element el = new Element(section, subSection, element)
         return el
     }

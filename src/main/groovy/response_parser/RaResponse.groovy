@@ -1,7 +1,8 @@
 package response_parser
 
+import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
-import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper
+import io.qameta.allure.Allure
 import io.restassured.response.Response
 
 class RaResponse {
@@ -9,7 +10,7 @@ class RaResponse {
     private Map cookies
     private String bodyAsString
     private Object bodyAsMap
-    private Response response
+    private synchronized Response response
     private def validateJsonSchema
     private int status
 
@@ -22,7 +23,6 @@ class RaResponse {
         this.headersAsList = response.headers().asList()
         this.cookies = response.getCookies()
         this.validateJsonSchema = performValidateJsonSchema
-
     }
 
     LinkedHashMap<String, Object> parseResponseToJsonObject() {
@@ -33,7 +33,8 @@ class RaResponse {
         return response.getBody().asString()
     }
 
-    LinkedHashMap getBodyAsMap() {
+    Map getBodyAsMap() {
+        Allure.attachment("body", new JsonBuilder(bodyAsMap).toPrettyString())
         return bodyAsMap
     }
 
